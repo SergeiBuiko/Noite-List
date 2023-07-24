@@ -1,0 +1,15 @@
+:root {
+  --color-primary: #a463f2;
+  --color-gray-dark: #ccc;
+  --color-gray: #EEEDED;
+}
+
+.App {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--color-gray);
+}
