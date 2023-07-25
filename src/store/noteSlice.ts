@@ -2,16 +2,16 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type Note = {
   id: string;
-  title: string;
+  description: string;
   complete: boolean;
 };
 
 type NoteState = {
-  list: Note[];
+  noteList: Note[];
 };
 
 const initialState: NoteState = {
-  list: [],
+  noteList: [],
 };
 
 const noteSlice = createSlice({
@@ -19,14 +19,28 @@ const noteSlice = createSlice({
   initialState,
   reducers: {
     addNote(state, action: PayloadAction<string>) {
-      state.list.push({
+      state.noteList.push({
         id: new Date().toISOString(),
-        title: action.payload,
+        description: action.payload,
         complete: false,
       });
+    },
+    deleteNote(state, action: PayloadAction<string>) {
+      state.noteList = state.noteList.filter(
+        (note) => note.id !== action.payload
+      );
+    },
+    editNote(state, action: PayloadAction<string>) {
+      const editedElement = state.noteList.find(
+        (note) => note.id === action.payload
+      );
+      if (editedElement) {
+        editedElement.description = action.payload;
+      }
+      console.log(action.payload);
     },
   },
 });
 
-export const { addNote } = noteSlice.actions;
+export const { addNote, deleteNote, editNote } = noteSlice.actions;
 export default noteSlice.reducer;
