@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAppDispatch } from '../hooks/hooks';
-import { deleteNote } from '../store/noteSlice';
+import { deleteNote, setID } from '../store/noteSlice';
 
 interface INoteItemProps {
   id: string;
@@ -14,9 +14,17 @@ export const NoteItem: React.FC<INoteItemProps> = ({
   complete,
 }) => {
   const dispatch = useAppDispatch();
+
+  const [editTodoID, setEditTodoId] = useState<string | null>(null);
+
+  // const editID = (id) => {
+  //   setEditTodoId(id);
+  // };
+
   return (
     <div>
       <span>{description}</span>
+      <button onClick={() => dispatch(setID(id))}>Edit</button>
       <button onClick={() => dispatch(deleteNote(id))}> X </button>
     </div>
   );

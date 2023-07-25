@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { editNote } from '../store/noteSlice';
+import { addNote, changeDescription, editNote } from '../store/noteSlice';
 import { useAppDispatch } from '../hooks/hooks';
 import { TextField } from '@mui/material';
 
@@ -14,21 +14,20 @@ export const EditNoteItem: React.FC<INoteItemProps> = ({
   description,
   complete,
 }) => {
-  const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState(' ');
+  const dispatch = useAppDispatch();
 
-  const addText = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputText(event.target.value);
+  const handleSubmit = () => {
+    if (inputText.trim().length) {
+      dispatch(changeDescription(inputText));
+    }
+    setInputText(' ');
   };
 
-  //   const onClick = () => {
-  //     changeTodo(editTodo);
-  //   };
-
-  const dispatch = useAppDispatch();
   //   const [editText, setEditText] = useState('');
   return (
     <div>
-      <TextField value={inputText} onChange={addText} />
+      <TextField value={inputText} onChange={handleSubmit} />
       <button onClick={() => dispatch(editNote(inputText))}> Edit </button>
     </div>
   );
