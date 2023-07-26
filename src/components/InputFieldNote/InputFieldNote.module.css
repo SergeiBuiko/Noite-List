@@ -1,0 +1,32 @@
+.paper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px 35px 20px 40px;
+  width: 60%;
+}
+
+.textfield {
+  width: 85%;
+  padding: 20px 30px;
+}
+
+.add_button:hover {
+  color: green;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 900px) {
+  .paper {
+    width: 90%;
+    padding: 20px 25px 20px 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .paper {
+    padding: 10px 5px 10px 10px;
+  }
+}

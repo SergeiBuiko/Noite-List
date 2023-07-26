@@ -1,7 +1,9 @@
-import { Box, TextField } from '@mui/material';
+import { IconButton, Paper, TextField } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
-import { useAppDispatch } from '../hooks/hooks';
-import { addNote } from '../store/noteSlice';
+import { addNote } from '../../store/noteSlice';
+import { useAppDispatch } from '../../hooks/hooks';
+import styles from './InputFieldNote.module.css';
+import AddIcon from '@mui/icons-material/AddBoxOutlined';
 
 export const InputFieldNote = () => {
   const [inputText, setInputText] = useState('');
@@ -18,13 +20,26 @@ export const InputFieldNote = () => {
   };
 
   return (
-    <Box>
+    <Paper elevation={3} className={styles.paper}>
       <TextField
+        className={styles.textfield}
         placeholder="Add Note"
         value={inputText}
         onChange={addText}
       ></TextField>
-      <button onClick={handleSubmit}>Add</button>
-    </Box>
+      {inputText ? (
+        <IconButton
+          className={styles.add_button}
+          color="primary"
+          onClick={handleSubmit}
+        >
+          <AddIcon />
+        </IconButton>
+      ) : (
+        <IconButton disabled>
+          <AddIcon />
+        </IconButton>
+      )}
+    </Paper>
   );
 };

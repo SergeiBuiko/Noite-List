@@ -1,0 +1,47 @@
+.paper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px 35px 20px 40px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+}
+
+.box_button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.typography {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox:hover,
+.edit_button:hover {
+  color: green;
+  transition: '0.3s';
+}
+
+.close_button:hover {
+  color: red;
+  transition: '0.3s';
+}
+
+@media screen and (max-width: 900px) {
+  .paper {
+    padding: 10px 25px 10px 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .paper {
+    padding: 1px 5px 1px 10px;
+    background-color: red;
+  }
+}

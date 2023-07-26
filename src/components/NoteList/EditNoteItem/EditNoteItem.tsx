@@ -1,7 +1,8 @@
 import React, { ChangeEvent, useState } from 'react';
-import { changeDescription, setID } from '../../store/noteSlice';
-import { useAppDispatch } from '../../hooks/hooks';
-import { TextField } from '@mui/material';
+import { changeDescription, setID } from '../../../store';
+import { Button, Paper, TextField } from '@mui/material';
+import { useAppDispatch } from '../../../hooks';
+import styles from './EditNoteItem.module.css';
 
 interface IEditNoteItemProps {
   id: string;
@@ -22,9 +23,15 @@ export const EditNoteItem: React.FC<IEditNoteItemProps> = ({ description }) => {
   };
 
   return (
-    <div>
-      <TextField value={editText} onChange={addText} />
-      <button onClick={handleSubmit}> Edit </button>
-    </div>
+    <Paper className={styles.paper} elevation={3}>
+      <TextField
+        value={editText}
+        onChange={addText}
+        className={styles.textfield}
+      />
+      <Button onClick={handleSubmit} className={styles.button}>
+        Edit
+      </Button>
+    </Paper>
   );
 };

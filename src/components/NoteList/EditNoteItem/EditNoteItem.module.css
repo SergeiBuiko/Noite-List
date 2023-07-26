@@ -1,0 +1,39 @@
+.paper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px 30px 20px 40px;
+}
+
+.textfield {
+  width: 85%;
+}
+
+.button {
+  width: 10%;
+}
+
+@media screen and (max-width: 900px) {
+  .paper {
+    padding: 20px 30px;
+  }
+
+  .textfield {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .paper {
+    padding: 12px;
+  }
+
+  .textfield {
+    width: 85%;
+  }
+
+  .button {
+    width: 5%;
+  }
+}
