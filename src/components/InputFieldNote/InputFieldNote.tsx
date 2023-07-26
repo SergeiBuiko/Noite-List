@@ -9,7 +9,6 @@ export const InputFieldNote = () => {
   const addText = (event: ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
   };
-  console.log(inputText);
 
   const handleSubmit = () => {
     if (inputText.trim().length) {

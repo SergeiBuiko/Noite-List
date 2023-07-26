@@ -1,6 +1,6 @@
 import styles from './App.module.css';
 import { Box } from '@mui/material';
-import { Header } from './components/Header';
+import { Header } from './components/Header/Header';
 import { InputFieldNote } from './components/InputFieldNote';
 import { NoteList } from './components/NoteList';
 

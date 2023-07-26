@@ -1,7 +1,6 @@
-import React from 'react';
 import { useAppSelector } from '../hooks/hooks';
-import { NoteItem } from './NoteItem';
-import { EditNoteItem } from './EditNoteItem';
+import { NoteItem } from './NoteItem/NoteItem';
+import { EditNoteItem } from './EditNoteItem/EditNoteItem';
 
 export const NoteList = () => {
   const notes = useAppSelector((state) => state.notes.noteList);
@@ -12,10 +11,8 @@ export const NoteList = () => {
       {notes.map((note) => {
         if (note.id === noteId) {
           return <EditNoteItem key={note.id} {...note} />;
-          // return <NoteItem key={note.id} {...note} />;
         }
         return <NoteItem key={note.id} {...note} />;
-        // return <EditNoteItem key={note.id} {...note} />;
       })}
     </div>
   );
