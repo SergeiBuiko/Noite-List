@@ -8,7 +8,14 @@
 
 .box {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.listItem {
+  color: rgb(65, 89, 224);
+  padding: 0;
 }
 
 .box_button {
@@ -20,6 +27,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+
 }
 
 .checkbox:hover,

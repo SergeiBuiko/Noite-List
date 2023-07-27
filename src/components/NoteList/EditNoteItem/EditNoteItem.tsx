@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import { changeDescription, setID } from '../../../store';
-import { Button, Paper, TextField } from '@mui/material';
+import { Box, Button, List, ListItem, Paper, TextField } from '@mui/material';
 import { useAppDispatch } from '../../../hooks';
 import styles from './EditNoteItem.module.css';
 
@@ -23,15 +23,36 @@ export const EditNoteItem: React.FC<IEditNoteItemProps> = ({ description }) => {
   };
 
   return (
-    <Paper className={styles.paper} elevation={3}>
-      <TextField
-        value={editText}
-        onChange={addText}
-        className={styles.textfield}
-      />
-      <Button onClick={handleSubmit} className={styles.button}>
-        Edit
-      </Button>
-    </Paper>
+    <Box>
+      <Paper className={styles.paper} elevation={3}>
+        <TextField
+          value={editText}
+          onChange={addText}
+          className={styles.textfield}
+        />
+        <Button onClick={handleSubmit} className={styles.button}>
+          Edit
+        </Button>
+      </Paper>
+
+      {/* <Paper> */}
+      <Box className={styles.typography}>
+        <List>
+          {description
+            .split(' ')
+            .filter((el) => el[0] === '#')
+            .map((el, id) => (
+              <ListItem
+                key={id}
+                className={styles.listItem}
+                sx={{ padding: '0px' }}
+              >
+                {el}
+              </ListItem>
+            ))}
+        </List>
+      </Box>
+      {/* </Paper> */}
+    </Box>
   );
 };
